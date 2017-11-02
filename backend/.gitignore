@@ -6,3 +6,5 @@ data/cache/*
 !data/cache/.gitkeep
 phpunit.xml
 composer.lock
+.php_cs.cache
+
