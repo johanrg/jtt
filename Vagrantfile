@@ -48,7 +48,7 @@ xdebug.profiler_output_dir=/var/www/profiler" >> /etc/php/7.1/apache2/php.ini
 
 # Configure Apache
 echo "<VirtualHost *:80>
-	DocumentRoot /var/www/public
+	DocumentRoot /var/www/backend/public
 	AllowEncodedSlashes On
 
 	<Directory /var/www/backend/public>
