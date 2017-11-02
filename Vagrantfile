@@ -77,9 +77,7 @@ if ! grep -q "cd /var/www" /home/vagrant/.profile; then
     echo "cd /var/www" >> /home/vagrant/.profile
 fi
 
-echo "** [ZF] Run the following command to install dependencies, if you have not already:"
-echo "    vagrant ssh -c 'composer install'"
-echo "** [ZF] Visit http://localhost:8080 in your browser for to view the application **"
+echo "** Visit http://localhost:8080 in your browser for to view the application **"
 SCRIPT
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
