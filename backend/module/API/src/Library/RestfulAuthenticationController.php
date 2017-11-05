@@ -1,9 +1,7 @@
 <?php
 
-namespace API\Rest;
+namespace API\Library;
 
-use API\Library\AuthenticationProviderInterface;
-use API\Library\RestResponseInterface;
 use PHPUnit\Runner\Exception;
 use Zend\EventManager\EventManagerAwareInterface;
 use Zend\EventManager\EventManagerInterface;
@@ -41,8 +39,8 @@ class RestfulAuthenticationController extends AbstractRestfulController implemen
    * of the controller with a status code.
    * Note: If authorization fails the method will halt the Rest controller from continuing.
    *
-   * @param MvcEvent $event
-   * @return Response
+   * @param \Zend\Mvc\MvcEvent $event
+   * @return \Zend\Http\PhpEnvironment\Response
    */
   public function checkAuthorization(MvcEvent $event): ?Response
   {
@@ -80,7 +78,7 @@ class RestfulAuthenticationController extends AbstractRestfulController implemen
    * Create a new resource
    *
    * @param  mixed $data
-   * @return JsonModel
+   * @return |Zend\View\Model\JsonModel
    */
   public function create($data): JsonModel
   {
@@ -91,7 +89,7 @@ class RestfulAuthenticationController extends AbstractRestfulController implemen
    * Delete an existing resource
    *
    * @param  mixed $id
-   * @return JsonModel
+   * @return |Zend\View\Model\JsonModel
    */
   public function delete($id): JsonModel
   {
@@ -105,7 +103,7 @@ class RestfulAuthenticationController extends AbstractRestfulController implemen
    * (introduced in 2.1.0); instead, raises an exception if not implemented.
    *
    * @param mixed $data
-   * @return JsonModel
+   * @return |Zend\View\Model\JsonModel
    */
   public function deleteList($data): JsonModel
   {
@@ -116,7 +114,7 @@ class RestfulAuthenticationController extends AbstractRestfulController implemen
    * Return single resource
    *
    * @param  mixed $id
-   * @return JsonModel
+   * @return |Zend\View\Model\JsonModel
    */
   public function get($id): JsonModel
   {
@@ -126,7 +124,7 @@ class RestfulAuthenticationController extends AbstractRestfulController implemen
   /**
    * Return list of resources
    *
-   * @return JsonModel
+   * @return |Zend\View\Model\JsonModel
    */
   public function getList(): JsonModel
   {
@@ -140,7 +138,7 @@ class RestfulAuthenticationController extends AbstractRestfulController implemen
    * (introduced in 2.1.0); instead, raises an exception if not implemented.
    *
    * @param  mixed $id
-   * @return JsonModel
+   * @return |Zend\View\Model\JsonModel
    */
   public function head($id = null): JsonModel
   {
@@ -156,7 +154,7 @@ class RestfulAuthenticationController extends AbstractRestfulController implemen
    * Not marked as abstract, as that would introduce a BC break
    * (introduced in 2.1.0); instead, raises an exception if not implemented.
    *
-   * @return JsonModel
+   * @return |Zend\View\Model\JsonModel
    */
   public function options(): JsonModel
   {
@@ -171,7 +169,7 @@ class RestfulAuthenticationController extends AbstractRestfulController implemen
    *
    * @param  $id
    * @param  $data
-   * @return JsonModel
+   * @return |Zend\View\Model\JsonModel
    */
   public function patch($id, $data): JsonModel
   {
@@ -185,7 +183,7 @@ class RestfulAuthenticationController extends AbstractRestfulController implemen
    * (introduced in 2.1.0); instead, raises an exception if not implemented.
    *
    * @param  mixed $data
-   * @return JsonModel
+   * @return |Zend\View\Model\JsonModel
    */
   public function replaceList($data): JsonModel
   {
@@ -199,7 +197,7 @@ class RestfulAuthenticationController extends AbstractRestfulController implemen
    * (introduced in 2.2.0); instead, raises an exception if not implemented.
    *
    * @param  mixed $data
-   * @return JsonModel
+   * @return |Zend\View\Model\JsonModel
    */
   public function patchList($data): JsonModel
   {
@@ -211,7 +209,7 @@ class RestfulAuthenticationController extends AbstractRestfulController implemen
    *
    * @param  mixed $id
    * @param  mixed $data
-   * @return JsonModel
+   * @return |Zend\View\Model\JsonModel
    */
   public function update($id, $data): JsonModel
   {
@@ -221,7 +219,7 @@ class RestfulAuthenticationController extends AbstractRestfulController implemen
   /**
    * Basic functionality for when a page is not available
    *
-   * @return JsonModel
+   * @return |Zend\View\Model\JsonModel
    */
   public function notFoundAction(): JsonModel
   {

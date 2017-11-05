@@ -2,6 +2,7 @@
 
 namespace API\Rest;
 
+use API\Library\RestfulAuthenticationController;
 use Zend\View\Model\JsonModel;
 
 class UserRest extends RestfulAuthenticationController

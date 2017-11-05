@@ -19,7 +19,7 @@ class JsonWebToken implements AuthenticationProviderInterface
   /**
    * Extracts the JWT from the header->Authorization field.
    *
-   * @param Request $request
+   * @param \Zend\Http\PhpEnvironment\Request $request Http Request
    * @return string
    */
   public function extract(Request $request): string
