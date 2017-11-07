@@ -31,7 +31,7 @@ class JsonResponse implements RestResponseInterface
    * @param int $httpStatusCode
    * @return string
    */
-  public function httpStatusCodeDescription(int $httpStatusCode): string
+  protected function httpStatusCodeDescription(int $httpStatusCode): string
   {
     switch ($httpStatusCode) {
       case 200:
