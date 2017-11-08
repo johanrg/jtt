@@ -23,13 +23,15 @@
   "autoload": {
     "psr-4": {
       "Application\\": "module/Application/src/",
-      "API\\": "module/API/src/"
+      "API\\": "module/API/src/",
+      "DbJtt\\": "module/DbJtt/src"
     }
   },
   "autoload-dev": {
     "psr-4": {
       "ApplicationTest\\": "module/Application/test/",
-      "APITest\\": "module/API/test"
+      "APITest\\": "module/API/test",
+      "DbJttTest\\": "module/DbJttt/test"
     }
   },
   "extra": [],
