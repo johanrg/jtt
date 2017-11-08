@@ -6,6 +6,8 @@ use API\Rest\RouteNotFound;
 use API\Rest\RouteNotFoundFactory;
 use API\Rest\UserRest;
 use API\Rest\UserRestFactory;
+use API\Rpc\AuthenticateRpc;
+use API\Rpc\AuthenticateRpcFactory;
 use Zend\Router\Http\Segment;
 
 return [
@@ -25,13 +27,23 @@ return [
       'user_rest' => [
         'type' => Segment::class,
         'options' => [
-          'route' => '/rest/user[/:id]',
+          'route' => '/api/user[/:id]',
           'constraints' => [
             'id' => '[0-9]+',
           ],
           'defaults' => [
             'controller' => UserRest::class,
             'authorization_required' => false
+          ],
+        ],
+      ],
+      'authenticate_rpc' => [
+        'type' => Segment::class,
+        'options' => [
+          'route' => '/api/authenticate',
+          'defaults' => [
+            'controller' => AuthenticateRpc::class,
+            'action' => 'authenticate'
           ],
         ],
       ]
@@ -41,6 +53,7 @@ return [
     'factories' => [
       UserRest::class => UserRestFactory::class,
       RouteNotFound::class => RouteNotFoundFactory::class,
+      AuthenticateRpc::class => AuthenticateRpcFactory::class,
     ]
   ],
   'view_manager' => [
