@@ -2,14 +2,17 @@
 
 namespace DbJtt\Entity;
 
-class Entity
+use Zend\Stdlib\ArrayObject;
+
+abstract class AbstractEntity extends ArrayObject
 {
   /** @var  int|null */
   protected $id;
 
-  public function exchangeArray(array $data)
+  public function exchangeArray($data)
   {
-    $this->id = !empty($data['id']) ? $data['id'] : null;
+    parent::exchangeArray($data);
+    $this->id = !empty($this->storage['id']) ? $this->storage['id'] : null;
   }
 
   /**

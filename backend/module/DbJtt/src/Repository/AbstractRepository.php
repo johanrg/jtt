@@ -5,12 +5,12 @@ namespace DbJtt\Repository;
 use Zend\Db\ResultSet\ResultSet;
 use Zend\Db\TableGateway\TableGateway;
 
-class Repository
+abstract class AbstractRepository
 {
   /** @var array */
-  private $identityMap;
+  protected $identityMap;
   /** @var TableGateway */
-  private $table;
+  protected $table;
 
   public function __construct(TableGateway $table)
   {

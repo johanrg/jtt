@@ -2,9 +2,7 @@
 
 namespace DbJtt\Entity;
 
-use Zend\Db\Sql\Ddl\Column\Date;
-
-class User extends Entity
+class User extends AbstractEntity
 {
   /** @var null|int */
   private $userTypeId;
@@ -20,20 +18,28 @@ class User extends Entity
   private $permissions;
   /** @var null|int */
   private $stamped;
-  /** @var null|Date */
+  /** @var null|string */
   private $created;
 
-  public function exchangeArray(array $data)
+  /**
+   * @param array|\Zend\Stdlib\ArrayObject $data
+   * @return array
+   */
+  public function exchangeArray($data)
   {
+    $storage = $this->storage;
     parent::exchangeArray($data);
-    $this->userTypeId = !empty($data['userTypeId']) ? $data['userTypeId'] : null;
-    $this->enabled = !empty($data['enabled']) ? $data['enabled'] : null;
-    $this->name = !empty($data['name']) ? $data['name'] : null;
-    $this->password = !empty($data['password']) ? $data['password'] : null;
-    $this->email = !empty($data['email']) ? $data['email'] : null;
-    $this->permissions = !empty($data['permissions']) ? $data['permissions'] : null;
-    $this->stamped = !empty($data['stamped']) ? $data['stamped'] : null;
-    $this->created = !empty($data['created']) ? $data['created'] : null;
+
+    $this->userTypeId = !empty($this->storage['userTypeId']) ? $this->storage['userTypeId'] : null;
+    $this->enabled = !empty($this->storage['enabled']) ? $this->storage['enabled'] : null;
+    $this->name = !empty($this->storage['name']) ? $this->storage['name'] : null;
+    $this->password = !empty($this->storage['password']) ? $this->storage['password'] : null;
+    $this->email = !empty($this->storage['email']) ? $this->storage['email'] : null;
+    $this->permissions = !empty($this->storage['permissions']) ? $this->storage['permissions'] : null;
+    $this->stamped = !empty($this->storage['stamped']) ? $this->storage['stamped'] : null;
+    $this->created = !empty($this->storage['created']) ? $this->storage['created'] : null;
+
+    return $storage;
   }
 
   /**
@@ -53,17 +59,17 @@ class User extends Entity
   }
 
   /**
-   * @return null|bool
+   * @return null|int
    */
-  public function getEnabled(): ?bool
+  public function getEnabled(): ?int
   {
     return $this->enabled;
   }
 
   /**
-   * @param bool $enabled
+   * @param int $enabled
    */
-  public function setEnabled(bool $enabled)
+  public function setEnabled(int $enabled)
   {
     $this->enabled = $enabled;
   }
@@ -149,17 +155,17 @@ class User extends Entity
   }
 
   /**
-   * @return null|Date
+   * @return null|string
    */
-  public function getCreated(): ?Date
+  public function getCreated(): ?string
   {
     return $this->created;
   }
 
   /**
-   * @param Date $created
+   * @param string $created
    */
-  public function setCreated(Date $created)
+  public function setCreated(string $created)
   {
     $this->created = $created;
   }

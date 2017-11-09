@@ -32,7 +32,7 @@ export class AuthenticationService {
         console.log(response);
       })
       .map((response: ResponseData) => {
-        let token = response && response.result.token;
+        let token = response && <string>response.result.token;
         if (token) {
           this.token = token;
           localStorage.setItem('currentUser', JSON.stringify({username: username, token: token}));

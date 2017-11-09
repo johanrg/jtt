@@ -6,11 +6,14 @@ import { Routing } from "./app.routing";
 import { AuthenticationService } from "./services/authentication.service"
 import { AppComponent } from './app.component';
 import { LoginComponent } from "./login/login.component"
+import {HomeComponent} from "./home/home.component";
+import {AuthGuard} from "./guards/auth.guard";
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
+    HomeComponent
   ],
   imports: [
     Routing,
@@ -18,7 +21,8 @@ import { LoginComponent } from "./login/login.component"
     HttpClientModule,
   ],
   providers: [
-    AuthenticationService
+    AuthenticationService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

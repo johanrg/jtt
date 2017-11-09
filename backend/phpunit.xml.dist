@@ -10,4 +10,9 @@
             <directory>./module/API/test</directory>
         </testsuite>
     </testsuites>
+    <testsuites>
+        <testsuite name="DbJtt Test Suite">
+            <directory>./module/DbJtt/test</directory>
+        </testsuite>
+    </testsuites>
 </phpunit>
